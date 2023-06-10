@@ -24,53 +24,10 @@ export function dynamicRoutes(routes) {
     }
     //判断是否有子菜单
     if (tmp.children) {
-      tmp.children = filterAsyncRoutes(tmp.children, roles)
+      tmp.children = dynamicRoutes(tmp.children)
     }
     res.push(tmp)
 
-  })
-
-  return res
-}
-
-/**
- * Use meta.role to determine if the current user has permission
- * @param roles
- * @param route
- */
-function hasPermission(roles, route) {
-  if (route.meta && route.meta.roles) {
-    return roles.some(role => route.meta.roles.includes(role))
-  } else {
-    return true
-  }
-}
-
-
-export function filterAsyncRoutes(routes, roles) {
-  const res = []
-
-  routes.forEach(route => {
-    const tmp = { ...route }
-    if (hasPermission(roles, tmp)) {
-      //获取组件
-      const component = tmp.component;
-      //判断该路由是否有组件
-      if (route.component) {
-        //判断是否是根组件
-        if (component === 'Layout') {
-          tmp.component = Layout;
-        } else {
-          //获取对应的具体的组件信息
-          tmp.component = (resolve) => require([`@/views${component}`], resolve)
-        }
-      }
-      //判断是否有子菜单
-      if (tmp.children) {
-        tmp.children = filterAsyncRoutes(tmp.children, roles)
-      }
-      res.push(tmp)
-    }
   })
 
   return res

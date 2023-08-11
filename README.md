@@ -119,4 +119,4 @@ npm run lint -- --fix
 
 ## Reference
 
-[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin/blob/master/LICENSE)
+[vue-element-admin](https://github.com/PanJiaChen/vue-element-admin/tree/master)

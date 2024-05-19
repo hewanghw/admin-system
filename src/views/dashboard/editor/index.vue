@@ -54,7 +54,7 @@ export default {
     .pan-info-realName {
       position: relative;
       top: 10px;
-      font-size: 50px;
+      font-size: 20px;
       font-weight: 700;
       color: #5cabb0;
       display: block;

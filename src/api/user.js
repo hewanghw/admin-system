@@ -11,20 +11,20 @@ export async function login(data) {
 * @returns
 */
 export async function getInfo() {
-  return await http.get("/sysUser/getInfo")
+  return await http.get("/user/getInfo")
 }
 /**
 * 退出登录
 * @returns
 */
 export async function logout(param) {
-  return await http.post("/sysUser/logout", param);
+  return await http.post("/user/logout", param);
 }
 
 /**
 * 获取菜单数据
 */
 export async function getMenuList(){
-  return await http.get("/sysUser/getMenuList");
+  return await http.get("/user/getMenuList");
   }
   
